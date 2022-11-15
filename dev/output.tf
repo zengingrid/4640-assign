@@ -6,4 +6,5 @@ output "server_ip" {
 output "database_url" {
   value = digitalocean_database_cluster.mongodb.uri
   description = "The database connection's full url"
+  sensitive = true
 }
