@@ -1,5 +1,5 @@
 data "digitalocean_ssh_key" "ssh_key" {
-  name = "lab5"
+  name = "assign_key"
 }
 
 data "digitalocean_project" "lab_project" {
