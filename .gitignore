@@ -5,5 +5,4 @@
 .terraform.lock.hcl
 do_token
 assgin_key
-terraform.tfvars
 
