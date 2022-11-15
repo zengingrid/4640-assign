@@ -4,6 +4,6 @@
 .env
 .terraform.lock.hcl
 do_token
-digocean.pem
+assgin_key
 terraform.tfvars
 
