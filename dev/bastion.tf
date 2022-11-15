@@ -4,7 +4,7 @@ resource "digitalocean_droplet" "bastion" {
   name     = "bastion-${var.region}"
   region   = var.region
   size     = "s-1vcpu-512mb-10gb"
-  ssh_keys = [data.digitalocean_ssh_key.river_ssh_key.id]
+  ssh_keys = [data.digitalocean_ssh_key.ssh_key.id]
   vpc_uuid = digitalocean_vpc.web_vpc.id
 }
 
