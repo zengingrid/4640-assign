@@ -1,4 +1,4 @@
-Lab 6: Terraform
+Assignment
 
 Refresher
 - Installing Terraform (via binary)
