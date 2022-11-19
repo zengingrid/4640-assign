@@ -4,7 +4,7 @@ output "server_ip" {
 }
 
 output "database_url" {
-  value = digitalocean_database_cluster.mongodb.uri
+  value = digitalocean_database_cluster.mysqldb.uri
   description = "The database connection's full url"
   sensitive = true
 }
