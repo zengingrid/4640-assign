@@ -8,13 +8,14 @@ resource "digitalocean_droplet" "bastion" {
   vpc_uuid = digitalocean_vpc.web_vpc.id
 }
 
+resource "digitalocean_project_resources" "project_attach2" {
+  project = data.digitalocean_project.lab_project.id
+  resources = [digitalocean_droplet.bastion.urn]
+}
+
 # firewall for bastion server
 resource "digitalocean_firewall" "bastion" {
-  
-  #firewall name
   name = "ssh-bastion-firewall"
-
-  # Droplets to apply the firewall to
   droplet_ids = [digitalocean_droplet.bastion.id]
 
   inbound_rule {

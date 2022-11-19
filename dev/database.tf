@@ -1,7 +1,7 @@
-resource "digitalocean_database_cluster" "mongodb" {
-  name       = "mongo-cluster"
-  engine     = "mongodb"
-  version    = "4"
+resource "digitalocean_database_cluster" "mysqldb" {
+  name       = "mysql-cluster"
+  engine     = "mysql"
+  version    = 8
   size       = "db-s-1vcpu-1gb"
   region     = var.region
   node_count = 1
@@ -9,13 +9,12 @@ resource "digitalocean_database_cluster" "mongodb" {
   private_network_uuid = digitalocean_vpc.web_vpc.id
 }
 
-resource "digitalocean_database_firewall" "mongodb-firewall" {
+resource "digitalocean_database_firewall" "mysqldb-firewall" {
     
-    cluster_id = digitalocean_database_cluster.mongodb.id
+    cluster_id = digitalocean_database_cluster.mysqldb.id
     # allow connection from resources with a given tag
-    # for example if our droplets all have a tag "web" we could use web as the value
     rule {
         type = "tag"
-        value = "Web"
+        value = digitalocean_tag.do_tag.name
     }
 }

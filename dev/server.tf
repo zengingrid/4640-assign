@@ -40,12 +40,8 @@ resource "digitalocean_project_resources" "project_attach" {
   resources = flatten([digitalocean_droplet.web.*.urn])
 }
 
-resource "digitalocean_firewall" "web" {
-
-    # The name we give our firewall for ease of use                            #    
-    name = "web-firewall"
-
-    # The droplets to apply this firewall to                                   #
+resource "digitalocean_firewall" "web" {   
+    name = "web-firewall"                                 #
     droplet_ids = digitalocean_droplet.web.*.id
 
     # Internal VPC Rules. We have to let ourselves talk to each other
@@ -84,19 +80,18 @@ resource "digitalocean_firewall" "web" {
     }
 
     # Selective Outbound Traffic Rules
-
     # HTTP
     outbound_rule {
         protocol = "tcp"
         port_range = "80"
-        destination_addresses = ["0.0.0.0/0", "::/0"]
+        destination_addresses =  [digitalocean_loadbalancer.public.ip]
     }
 
     # HTTPS
     outbound_rule {
         protocol = "tcp"
         port_range = "443"
-        destination_addresses = ["0.0.0.0/0", "::/0"]
+        destination_addresses =  [digitalocean_loadbalancer.public.ip]
     }
 
     # ICMP (Ping)
