@@ -54,7 +54,7 @@ Testing
   - Add local computer to the database’s trusted sources
   ![image](https://user-images.githubusercontent.com/71790092/202872374-39fb4c7a-4741-444a-b68c-958752764579.png)
   - Copy the command to CLI
-  ![image](https://user-images.githubusercontent.com/71790092/202873303-2f4127dd-4aea-4094-ba13-444828a9264e.png)
+  ![image](https://user-images.githubusercontent.com/71790092/202873349-93aa82a6-e432-4bcc-aede-37591209a623.png)
 
   
   
