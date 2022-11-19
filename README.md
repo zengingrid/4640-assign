@@ -1,29 +1,28 @@
-Assignment
-
-<h2>Refresher</h2>
-- Installing Terraform (via binary)
-  1. Visit https://developer.hashicorp.com/terraform/downloads
-  2. Binary download for Linux: AMD64 
-  3. Unzip the folder and move the file into usr/local/bin
-  4. Remove the zip
+Refresher
+Installing Terraform (via binary)
+1. Visit https://developer.hashicorp.com/terraform/downloads
+2. Binary download for Linux: AMD64 
+3. Unzip the folder and move the file into usr/local/bin
+4. Remove the zip
   
-<h2>Reusing the wk6 directory with the subdirectory: /dev</h2>
-- In /dev
-  - Creating the .env file
-      1. In digitalocean, go to API to generate a token
-      2. copy the token and put it in a .env file
-      3. export the token as TF_VAR (export TF_VAR_do_token)
-      4. source .env
-  - To breakout terraform files for easier configuration update: 
-    - main.tf: provider info
-    - variables.tf: reusable varialbes (to avoid hard-coding values)
-    - terraform.tfvars: variable values
-    - output.tf: any output values, like ip addresses and database connection uri
-    - database.tf (NEW): database cluster and firewall
-    - servers.tf: droplets, load balancer, and firewall for servers (NEW)
-    - bastion.tf (NEW): server, attachment, and firewall
-    - network.tf: vpc
-    - data.tf: data blocks (ssh keys)   
+Assignment
+Reusing the wk6 directory with the subdirectory: /dev
+- Creating the .env file
+  1. In digitalocean, go to API to generate a token
+  2. copy the token and put it in a .env file
+  3. export the token as TF_VAR (export TF_VAR_do_token)
+  4. source .env
+- To breakout terraform files for easier configuration update: 
+  - main.tf: provider info
+  - variables.tf: reusable varialbes (to avoid hard-coding values)
+  - terraform.tfvars: variable values
+  - data.tf: data blocks
+  - network.tf: vpc
+  - servers.tf: droplets, load balancer, and firewall for servers (NEW)
+  - output.tf: any output values, like ip addresses and database connection uri
+  - database.tf (NEW): database cluster and firewall
+  - bastion.tf (NEW): server, attachment, and firewall
+   
   - To run: 
     ```bash
     terraform init
@@ -37,19 +36,27 @@ Assignment
     terraform apply
     ``` 
     SUCCESS:
-    ![image](https://user-images.githubusercontent.com/71790092/202868413-9dca5449-1ce2-45f1-bab9-d2481e0b121c.png)
+    ![image](https://user-images.githubusercontent.com/71790092/202872253-64b3d904-6521-43cb-a126-4bfb8128bc50.png)
+    ![image](https://user-images.githubusercontent.com/71790092/202872267-324ca61f-defb-4fd7-9b52-65e0cd9f6890.png)
   - To delete everything (after finishing the project)
     ```bash
     terraform destroy
     ``` 
-<h2>Testing</h2>
+Testing
 - Test bastion server's connection to internal servers
-  - ssh-add <path to private key>
-  ![image](https://user-images.githubusercontent.com/71790092/202869002-fdda4d0e-94e8-45da-ab7d-15a1b90ddc94.png)
-  - ssh -A root@<public IP of bastion server>
-  ![image](https://user-images.githubusercontent.com/71790092/202869047-9e309eab-4fb2-4934-bad4-ae339535059d.png)
-  - ssh -A root@<internal IP of web server 1>
-  ![image](https://user-images.githubusercontent.com/71790092/202869069-b6bcd84b-965a-493e-a960-531d8d4736ae.png)
-- Test web servers' connection to MySQL database
-- Test web server's connection to Load Balancer
+  - eval $(ssh-agent)
+  - In localhost: ssh-add <path to private key>
+  - In localhost: ssh -A root@<publicIP_bastion_server>
+  ![image](https://user-images.githubusercontent.com/71790092/202872342-b932c0d3-a9d0-4bb7-922c-f262d9bd5880.png)
+  - In Bastion: ssh -A root@<internalIP_web_server_1>
+  ![image](https://user-images.githubusercontent.com/71790092/202872363-eebf407d-b961-4837-97d7-24c36d9e9fb5.png)
+- Test connection to MySQL database
+  - Find database cluster info on digitalocean
+  - Add local computer to the database’s trusted sources
+  ![image](https://user-images.githubusercontent.com/71790092/202872374-39fb4c7a-4741-444a-b68c-958752764579.png)
+  - Copy the command to CLI
+  ![image](https://user-images.githubusercontent.com/71790092/202873303-2f4127dd-4aea-4094-ba13-444828a9264e.png)
+
+  
+  
 
