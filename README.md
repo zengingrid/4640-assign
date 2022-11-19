@@ -37,7 +37,6 @@ Reusing the wk6 directory with the subdirectory: /dev
     ``` 
     SUCCESS:
     ![image](https://user-images.githubusercontent.com/71790092/202872253-64b3d904-6521-43cb-a126-4bfb8128bc50.png)
-    ![image](https://user-images.githubusercontent.com/71790092/202872267-324ca61f-defb-4fd7-9b52-65e0cd9f6890.png)
   - To delete everything (after finishing the project)
     ```bash
     terraform destroy
