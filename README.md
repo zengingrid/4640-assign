@@ -5,7 +5,7 @@ Installing Terraform (via binary)
 3. Unzip the folder and move the file into usr/local/bin
 4. Remove the zip
   
-Assignment:
+Assignment
 - Reusing the wk6 directory with the subdirectory: /dev
 - Creating the .env file
   1. In digitalocean, go to API to generate a token
