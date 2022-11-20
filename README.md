@@ -52,9 +52,9 @@ Testing
 - Test connection to MySQL database
   - Find database cluster info on digitalocean
   - Add local computer to the database’s trusted sources
-  ![image](https://user-images.githubusercontent.com/71790092/202872374-39fb4c7a-4741-444a-b68c-958752764579.png)
   - Copy the command to CLI
-  ![image](https://user-images.githubusercontent.com/71790092/202873349-93aa82a6-e432-4bcc-aede-37591209a623.png)
+  ![image](https://user-images.githubusercontent.com/71790092/202880579-8e996a0b-d98a-4c14-ada9-644b2451f12d.png)
+
 
   
   
