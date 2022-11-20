@@ -55,7 +55,7 @@ Testing
   - Temporarly remove "Web" tag from trusted hosts to allow access from anywhere
   - Copy the command to CLI
   ![image](https://user-images.githubusercontent.com/71790092/202880579-8e996a0b-d98a-4c14-ada9-644b2451f12d.png)
-  - Add the "Web" tag back
+  - Upon success, add the "Web" tag back
 
 
   
