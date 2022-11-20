@@ -51,6 +51,7 @@ Testing
   ![image](https://user-images.githubusercontent.com/71790092/202872363-eebf407d-b961-4837-97d7-24c36d9e9fb5.png)
 - Test connection to MySQL database
   - Find database cluster info on digitalocean
+  ![image](https://user-images.githubusercontent.com/71790092/202880721-749205dc-8acc-4498-b877-9f66a8b06392.png)
   - Add local computer to the database’s trusted sources
   - Copy the command to CLI
   ![image](https://user-images.githubusercontent.com/71790092/202880579-8e996a0b-d98a-4c14-ada9-644b2451f12d.png)
