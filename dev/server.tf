@@ -44,22 +44,22 @@ resource "digitalocean_firewall" "web" {
     name = "web-firewall"                                 #
     droplet_ids = digitalocean_droplet.web.*.id
 
-    # Internal VPC Rules. We have to let ourselves talk to each other
     inbound_rule {
-        protocol = "tcp"
-        port_range = "1-65535"
-        source_addresses = [digitalocean_vpc.web_vpc.ip_range]
+      protocol         = "tcp"
+      port_range       = "22"
+      source_addresses = [digitalocean_droplet.bastion.ipv4_address]
     }
 
     inbound_rule {
-        protocol = "udp"
-        port_range = "1-65535"
-        source_addresses = [digitalocean_vpc.web_vpc.ip_range]
+      protocol         = "tcp"
+      port_range       = "80"
+      source_addresses = [digitalocean_loadbalancer.public.ip]
     }
 
     inbound_rule {
-        protocol = "icmp"
-        source_addresses = [digitalocean_vpc.web_vpc.ip_range]
+      protocol         = "tcp"
+      port_range       = "443"
+      source_addresses = [digitalocean_loadbalancer.public.ip]
     }
 
     outbound_rule {
