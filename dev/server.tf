@@ -47,19 +47,19 @@ resource "digitalocean_firewall" "web" {
     inbound_rule {
       protocol         = "tcp"
       port_range       = "22"
-      source_addresses = [digitalocean_droplet.bastion.private.ip]
+      source_addresses = [digitalocean_droplet.bastion.ipv4_address_private]
     }
 
     inbound_rule {
       protocol         = "tcp"
       port_range       = "80"
-      source_addresses = [digitalocean_loadbalancer.private.ip]
+      source_addresses = [digitalocean_loadbalancer.ipv4_address_private]
     }
 
     inbound_rule {
       protocol         = "tcp"
       port_range       = "443"
-      source_addresses = [digitalocean_loadbalancer.private.ip]
+      source_addresses = [digitalocean_loadbalancer.ipv4_address_private]
     }
 
     outbound_rule {
