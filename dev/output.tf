@@ -16,11 +16,3 @@ output "bastion_ip" {
 output "loadbalancer_ip"{
     value = digitalocean_loadbalancer.public.ip
 }
-
-output "bastion_private_ip" {
-  value = digitalocean_droplet.bastion.ipv4_address_private
-}
-
-output "lb_private_ip" {
-  value = digitalocean_loadbalancer.ipv4_address_private
-}

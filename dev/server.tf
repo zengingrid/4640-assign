@@ -53,13 +53,13 @@ resource "digitalocean_firewall" "web" {
     inbound_rule {
       protocol         = "tcp"
       port_range       = "80"
-      source_addresses = [digitalocean_loadbalancer.ipv4_address_private]
+      source_load_balancer_uids = [digitalocean_loadbalancer.public.id]
     }
 
     inbound_rule {
       protocol         = "tcp"
       port_range       = "443"
-      source_addresses = [digitalocean_loadbalancer.ipv4_address_private]
+      source_load_balancer_uids = [digitalocean_loadbalancer.public.id]
     }
 
     outbound_rule {
